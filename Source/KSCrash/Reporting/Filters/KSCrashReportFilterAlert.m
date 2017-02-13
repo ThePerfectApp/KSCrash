@@ -107,12 +107,12 @@
     UIAlertAction *yesAction = [UIAlertAction actionWithTitle:yesAnswer
                                                         style:UIAlertActionStyleDefault
                                                       handler:^(UIAlertAction * _Nonnull action) {
-                                                          kscrash_callCompletion(self.onCompletion, self.reports, NO, nil);
+                                                          kscrash_callCompletion(self.onCompletion, self.reports, YES, nil);
                                                       }];
     UIAlertAction *noAction = [UIAlertAction actionWithTitle:noAnswer
                                                        style:UIAlertActionStyleCancel
                                                      handler:^(UIAlertAction * _Nonnull action) {
-                                                         kscrash_callCompletion(self.onCompletion, self.reports, YES, nil);
+                                                         kscrash_callCompletion(self.onCompletion, self.reports, NO, nil);
                                                      }];
     [alertController addAction:yesAction];
     [alertController addAction:noAction];
