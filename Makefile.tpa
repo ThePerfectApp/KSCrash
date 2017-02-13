@@ -1,0 +1,16 @@
+all: lib
+
+.PHONY: lib_simulator lib_device lib
+
+lib_simulator:
+	xcodebuild -scheme KSCrashLib -workspace iOS.xcworkspace -sdk iphonesimulator -configuration Release -derivedDataPath ./build/simulator/
+
+lib_device:
+	xcodebuild -scheme KSCrashLib -workspace iOS.xcworkspace -sdk iphoneos -configuration Release -derivedDataPath ./build/device/ ARCHS="arm64 armv7 armv7s" VALID_ARCHS="arm64 armv7 armv7s"
+
+lib: lib_simulator lib_device
+	mkdir -p ./build/combined/
+	lipo -create -output ./build/combined/libKSCrashLib.a \
+		./build/simulator/Build/Products/Release-iphonesimulator/libKSCrashLib.a \
+		./build/device/Build/Products/Release-iphoneos/libKSCrashLib.a
+	cp ./build/simulator/Build/Products/Release-iphonesimulator/include/KSCrash/* ./build/combined
