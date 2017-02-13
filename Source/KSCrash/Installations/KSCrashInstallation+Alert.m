@@ -26,6 +26,8 @@
 #import "KSCrash.h"
 #import "KSCrashReportFilterAlert.h"
 
+NSString *KSCrashInstallationAlertCategory;
+
 @implementation KSCrashInstallation (Alert)
 
 - (void) addConditionalAlertWithTitle:(NSString*) title

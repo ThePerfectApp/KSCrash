@@ -24,6 +24,9 @@
 
 #import "KSCrashInstallation.h"
 
+// See https://medium.com/ios-os-x-development/categories-in-static-libraries-78e41f8ddb96#.942f1pw92
+extern NSString * KSCrashInstallationAlertCategory;
+
 @interface KSCrashInstallation (Alert)
 
 /** Show an alert before sending any reports. Reports will only be sent if the user

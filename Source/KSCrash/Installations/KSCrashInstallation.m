@@ -366,3 +366,9 @@ static void crashCallback(const KSCrashReportWriter* writer)
 }
 
 @end
+
+// See https://medium.com/ios-os-x-development/categories-in-static-libraries-78e41f8ddb96#.942f1pw92
+#include "KSCrashInstallation+Alert.h"
+__attribute__((used)) static void importCategories () {
+    id x = KSCrashInstallationAlertCategory;
+}
